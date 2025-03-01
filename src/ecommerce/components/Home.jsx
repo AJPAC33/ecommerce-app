@@ -55,22 +55,22 @@ export function Home({
     setCloseState(true);
   };
 
-  const handleOutsideClick = (equipo) => {
-    if (
-      !closeState &&
-      modalRef.current &&
-      !modalRef.current.contains(e.target)
-    ) {
-      handleClose();
-    }
-  };
-
   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        !closeState &&
+        modalRef.current &&
+        !modalRef.current.contains(e.target)
+      ) {
+        handleClose();
+      }
+    };
+
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []);
+  }, [closeState]);
 
   return (
     <>

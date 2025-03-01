@@ -91,14 +91,41 @@ export function useProductsByCategory(categories) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    Promise.all(
-      categories.map((category) =>
-        fetch(`https://dummyjson.com/products/category/${category}`)
-          .then((res) => res.json())
-          .then(({ products }) => setProducts(products))
-      )
-    ).catch((error) => console.error("Error fetching data:", error));
+    const fetchProducts = async () => {
+      try {
+        // Realizar las solicitudes de manera concurrente
+        const responses = await Promise.all(
+          categories.map((category) =>
+            fetch(`https://dummyjson.com/products/category/${category}`)
+          )
+        );
+
+        // Procesar las respuestas y obtener productos únicos
+        const productSet = new Map();
+        const allProducts = await Promise.all(
+          responses.map(async (response) => {
+            const data = await response.json();
+            return data.products;
+          })
+        );
+
+        allProducts.flat().forEach((product) => {
+          if (!productSet.has(product.id)) {
+            productSet.set(product.id, product);
+          }
+        });
+
+        // Establecer el estado con los productos únicos
+        setProducts(Array.from(productSet.values()));
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchProducts();
   }, [categories]);
+
+  console.log(products);
   return products;
 }
 

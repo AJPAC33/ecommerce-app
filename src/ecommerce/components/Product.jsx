@@ -50,22 +50,22 @@ export const Product = ({
     return product.length > 0 ? searchedProducts : productsByCategory;
   }, [product, searchedProducts, productsByCategory]);
 
-  const handleOutsideClick = (e) => {
-    if (
-      !closeState &&
-      modalRef.current &&
-      !modalRef.current.contains(e.target)
-    ) {
-      handleClose();
-    }
-  };
-
   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        !closeState &&
+        modalRef.current &&
+        !modalRef.current.contains(e.target)
+      ) {
+        handleClose();
+      }
+    };
+
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []);
+  }, [closeState]);
 
   return (
     <>
