@@ -28,7 +28,7 @@ export function NavBar({ searchBtn }) {
   };
 
   const handleLogin = () => {
-    navigate();
+    navigate("/login");
   };
 
   return (
@@ -131,7 +131,10 @@ export function NavBar({ searchBtn }) {
                 <CiLogout />
               </button>
             ) : (
-              <button className="mr-[20px] text-[20px] cursor-pointer border-none bg-none">
+              <button
+                className="mr-[20px] text-[20px] cursor-pointer border-none bg-none"
+                onClick={handleLogin}
+              >
                 <CiLogin />
               </button>
             )}

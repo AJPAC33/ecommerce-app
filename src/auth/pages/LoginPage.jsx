@@ -1,4 +1,4 @@
-import { Link, Link as RouterLink } from "react-router-dom";
+import { Link, Link as RouterLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import React, { useMemo } from "react";
 import { AuthLayout } from "../layout/AuthLayout";
@@ -18,6 +18,7 @@ const formData = {
 
 export const LoginPage = () => {
   const { status, errorMessage } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -28,11 +29,13 @@ export const LoginPage = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(startLoginWithEmailAndPassword({ email, password }));
+    navigate("/*");
   };
 
   const onGoogleSignIn = () => {
     console.log("onGoogleSignIn");
     dispatch(startGoogleSignIn());
+    navigate("/*");
   };
 
   return (

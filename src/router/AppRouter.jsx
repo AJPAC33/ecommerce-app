@@ -27,13 +27,14 @@ export function AppRouter() {
 
   return (
     <Routes>
-      {status === "authenticated" ? (
+      {/* {status === "authenticated" ? (
         <Route path="/*" element={<EcommerceRoutes />} />
       ) : (
         <Route path="/auth/*" element={<AuthRoutes />} />
       )}
 
-      <Route path="/*" element={<Navigate to="/auth/login" />} />
+      <Route path="/*" element={<Navigate to="/auth/login" />} /> */}
+      <Route path="/*" element={<AuthRoutes />} />
     </Routes>
   );
 }
