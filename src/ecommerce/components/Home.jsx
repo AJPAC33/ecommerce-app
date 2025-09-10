@@ -20,6 +20,7 @@ import {
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { imageBanner } from "../../assets";
 
 export function Home({
   detail,
@@ -146,10 +147,7 @@ export function Home({
             </Link>
           </div>
           <div className="flex items-center justify-center h-[500px]">
-            <img
-              className="h-[400px]"
-              src="src\assets\Apple-iPhone-11-PNG-Image.png"
-            ></img>
+            <img className="h-[400px]" src={imageBanner}></img>
           </div>
         </div>
       </div>
