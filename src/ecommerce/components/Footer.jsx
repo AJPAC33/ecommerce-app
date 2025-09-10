@@ -9,13 +9,13 @@ export const Footer = () => {
   return (
     <>
       <div className="py-[40px] px-[80px] w-[100%] bg-[#ecf2f7]">
-        <div className="grid grid-cols-2 md:grid-cols-3 justify-center items-center">
-          <div className="hidden md:block md:col-span-1 place-self-center mt-[30px]">
+        <div className="grid grid-cols-2 md:grid-cols-3">
+          <div className="hidden md:block col-span-1 mt-[10px]">
             <div className="w-[100px]">
               <img src="src\assets\logo.png" alt="logo" />
             </div>
             <div>
-              <p className="mt-[20px] text-[16px] text-[#010f1c]">
+              <p className="mt-[20px] text-[16px] text-center text-[#010f1c]">
                 Somos un equipo de diseñadores y desarrolladores que crean webs
                 de alta calidad
               </p>
@@ -35,43 +35,43 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="md:col-span-1 place-self-center mt-[30px]">
-            <h3 className="place-self-center text-[24px] md:text-[32px] text-[#010f1c]">
+          <div className="col-span-1 mt-[10px]">
+            <h3 className="place-self-center text-[24px] md:text-[32px] text-center text-[#010f1c]">
               Mi cuenta
             </h3>
             <ul className="flex flex-col items-center mt-[10px]">
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Cuenta
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Orden
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 <Link to="/cart">Carrito</Link>
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Envio
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Devolucion
               </li>
             </ul>
           </div>
-          <div className="md:col-span-1 place-self-center mt-[10px]">
-            <h3 className="place-self-center text-[24px] md:text-[32px] text-[#010f1c]">
+          <div className="col-span-1 mt-[10px]">
+            <h3 className="place-self-center text-[24px] md:text-[32px] text-center text-[#010f1c]">
               Paginas
             </h3>
             <ul className="flex flex-col items-center mt-[10px]">
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 <Link to="/home">Home</Link>
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Acerca de
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 <Link to="/contact">Contacto</Link>
               </li>
-              <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
+              <li className="mt-[5px] text-center text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Terminos y condiciones
               </li>
             </ul>

@@ -224,17 +224,17 @@ export function Home({
         </div>
       </div>
 
-      <div className="flex flex-col justify-center py-[30px] px-[40px] w-[100%]">
-        <h4 className="text-[32px] text-[#010f1c] ml-[82px]">Productos Top</h4>
-        <div className="grid gap-18 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-[60px] w-fit mx-auto">
+      <div className="flex flex-col justify-center items-center py-[30px] px-[40px] w-[100%]">
+        <h4 className="text-[32px] text-[#010f1c]">Productos Top</h4>
+        <div className="grid gap-18 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-[60px] w-fit mx-auto">
           {products.map((selectedProduct) => {
             const { id, title, thumbnail, price, category } = selectedProduct;
             return (
               <div
-                className="pb-[40px] px-[30px] overflow-hidden w-[360px] border-1 border-[#e2e0e0] transition duration-200 cursor-pointer rounded-sm hover:shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
+                className="pb-[40px] px-[30px] overflow-hidden w-auto md:w-[360px] border-1 border-[#e2e0e0] transition duration-200 cursor-pointer rounded-sm hover:shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
                 key={id}
               >
-                <div className="flex w-[300px] border-b-1 border-[#e2e0e0] group">
+                <div className="flex w-auto md:w-[300px] border-b-1 border-[#e2e0e0] group">
                   <img className="w-[300px]" src={thumbnail} alt={title} />
                   <div className="z-1 relative left-[44px] mt-[14px] transition duration-200 group-hover:-translate-x-[74px]">
                     {status === "authenticated" ? (
@@ -278,21 +278,21 @@ export function Home({
         </div>
       </div>
       <div className="py-[20px] px-[30px] w-[100%]">
-        <div className="flex justify-around items-center py-[30px] px-[40px] bg-[#0989ff] rounded-xl">
-          <div className="inline-block mt-[30px] mb-[30px] ml-[20px]">
-            <h4 className="text-[#e3edf6] text-[12px] md:text-[16px] tracking-[1px]">
+        <div className="flex flex-col md:flex-row justify-around items-center py-[30px] px-[40px] bg-[#0989ff] rounded-xl">
+          <div className="flex flex-col justify-center items-center md:items-start mt-[30px] mb-[30px]">
+            <h4 className="text-center  text-[#e3edf6] text-[12px] md:text-[16px] tracking-[1px]">
               Ultima tecnologia agregada
             </h4>
-            <h3 className="mt-[10px] text-[20px] md:text-[42px] mr-[20%] tracking-[1px] text-[#fff]">
+            <h3 className="mt-[10px] text-center md:text-start text-[20px] md:text-[42px] md:mr-[20%] tracking-[1px] text-[#fff]">
               {title}
             </h3>
-            <p className="flex justify-start items-center my-[20px] text-[#fff] text-[24px] md:text-[32px] tracking-[1px] font-semibold">
+            <p className="flex justify-center items-center my-[20px] text-[#fff] text-[24px] md:text-[32px] tracking-[1px] font-semibold">
               <BsCurrencyDollar />
               {price}
             </p>
             <Link
               to="/product"
-              className="flex justify-between items-center w-[140px] py-[10px] px-[20px] text-[#e8f4ff] bg-[#010f1c] rounded-sm transition duration-200 hover:text-[#010f1c] hover:bg-[#e8f4ff]"
+              className="flex justify-center md:justify-between items-center w-[140px] py-[10px] px-[20px] text-[#e8f4ff] bg-[#010f1c] rounded-sm transition duration-200 hover:text-[#010f1c] hover:bg-[#e8f4ff]"
             >
               Shop Now <LiaLongArrowAltRightSolid />
             </Link>
