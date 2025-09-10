@@ -3,6 +3,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -58,13 +59,13 @@ export const Footer = () => {
             <h3 className="text-[32px] text-[#010f1c]">Paginas</h3>
             <ul className="mt-[10px] ml-[20px]">
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
-                Home
+                <Link to="/home">Home</Link>
               </li>
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Acerca de
               </li>
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
-                Contacto
+                <Link to="/contact">Contacto</Link>
               </li>
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Terminos y condiciones

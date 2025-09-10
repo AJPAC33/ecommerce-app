@@ -7,6 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 import { CiLogin } from "react-icons/ci";
+import { logo } from "../../assets";
 
 export function NavBar({ searchBtn }) {
   const { status, displayName } = useSelector((state) => state.auth);
@@ -36,7 +37,7 @@ export function NavBar({ searchBtn }) {
       <div className="main-header flex justify-center border-b-1 border-[#010f1c] py-[30px] px-[40px] w-[100%]">
         <div className="flex justify-between items-center w-[95%]">
           <div className="logo w-[130px] mr-[30px]">
-            <img src="src\assets\logo.png" alt="logo" />
+            <img src={logo} alt="logo" />
           </div>
           <div className="flex flex-row mr-[30px]">
             <input
@@ -101,7 +102,7 @@ export function NavBar({ searchBtn }) {
                   to="/product"
                   className="text-[#010f1c] transition duration-200 hover:text-[#0989ff]"
                 >
-                  Product
+                  Productos
                 </Link>
               </li>
               <li className="ml-[20px] inline-block">
@@ -109,7 +110,7 @@ export function NavBar({ searchBtn }) {
                   to="/about"
                   className="text-[#010f1c] transition duration-200 hover:text-[#0989ff]"
                 >
-                  About
+                  Acerca de
                 </Link>
               </li>
               <li className="ml-[20px] inline-block">
@@ -117,7 +118,7 @@ export function NavBar({ searchBtn }) {
                   to="/contact"
                   className="text-[#010f1c] transition duration-200 hover:text-[#0989ff]"
                 >
-                  Contact
+                  Contacto
                 </Link>
               </li>
             </ul>

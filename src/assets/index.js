@@ -1,4 +1,4 @@
-import logo from "./assets/logo.png";
-import imageBanner from "./assets/imagebanner.png";
+import logo from "./logo.png";
+import imageBanner from "./imagebanner.png";
 
 export { logo, imageBanner };

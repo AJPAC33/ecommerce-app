@@ -147,7 +147,7 @@ export function Home({
             </Link>
           </div>
           <div className="flex items-center justify-center h-[500px]">
-            <img className="h-[400px]" src={imageBanner}></img>
+            <img className="h-[400px]" src={imageBanner} />
           </div>
         </div>
       </div>
