@@ -33,6 +33,10 @@ export function EcommerceRoutes() {
     }
   };
 
+  const handleNotLoggedIn = () => {
+    alert("Necesitas estar logueado para agregar productos al carrito");
+  };
+
   return (
     <EcommerceLayout setProduct={setProduct}>
       <Routes>
@@ -45,6 +49,7 @@ export function EcommerceRoutes() {
               closeState={closeState}
               setCloseState={setCloseState}
               handleAddToCart={handleAddToCart}
+              handleNotLoggedIn={handleNotLoggedIn}
               handleView={handleView}
             />
           }
@@ -60,6 +65,7 @@ export function EcommerceRoutes() {
               closeState={closeState}
               setCloseState={setCloseState}
               handleAddToCart={handleAddToCart}
+              handleNotLoggedIn={handleNotLoggedIn}
               handleView={handleView}
             />
           }

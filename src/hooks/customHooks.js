@@ -124,8 +124,6 @@ export function useProductsByCategory(categories) {
 
     fetchProducts();
   }, [categories]);
-
-  console.log(products);
   return products;
 }
 

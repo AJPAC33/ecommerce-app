@@ -19,6 +19,7 @@ export const Product = ({
   closeState,
   setCloseState,
   handleAddToCart,
+  handleNotLoggedIn,
   handleView,
 }) => {
   const { status } = useSelector((state) => state.auth);
@@ -114,7 +115,7 @@ export const Product = ({
                     ) : (
                       <button
                         className="text-[18px] text-[#fff] bg-[#010f1c] py-[5px] px-[10px] transition duration-200 border-none outline-none cursor-pointer hover:bg-[#0989ff]"
-                        onClick={() => handleAddToCart([])}
+                        onClick={() => handleNotLoggedIn()}
                       >
                         Agregar al carrito
                       </button>
@@ -179,7 +180,7 @@ export const Product = ({
                           ) : (
                             <li
                               className="flex justify-center items-center list-none p-[10px] w-[44px] h-[44px] text-[#010f1c] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-[#fff] transition duration-200 text-[18px] hover:bg-[#0989ff] hover:text-[#fff]"
-                              onClick={() => handleAddToCart([])}
+                              onClick={() => handleNotLoggedIn()}
                             >
                               <PiShoppingCart />
                             </li>

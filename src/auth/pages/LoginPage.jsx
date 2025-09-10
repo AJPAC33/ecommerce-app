@@ -54,7 +54,6 @@ export const LoginPage = () => {
               label="Correo"
               type="email"
               placeholder="correo@google.com"
-              fullWidth
               name="email"
               value={email}
               onChange={onInputChange}
@@ -69,7 +68,6 @@ export const LoginPage = () => {
               label="Contraseña"
               type="password"
               placeholder="Contraseña"
-              fullWidth
               name="passsword"
               value={password}
               onChange={onInputChange}
@@ -87,7 +85,6 @@ export const LoginPage = () => {
                 disabled={isAuthenticating}
                 type="submit"
                 variant="contained"
-                fullWidth
               >
                 Login
               </button>

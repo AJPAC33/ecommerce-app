@@ -63,42 +63,50 @@ export const RegisterPage = () => {
               label="Nombre completo"
               type="text"
               placeholder="Nombre completo"
-              fullWidth
               name="displayName"
               value={displayName}
               onChange={onInputChange}
-              error={!!displayNameValid && formSubmitted}
-              helperText={displayNameValid}
+              // error={!!displayNameValid && formSubmitted}
+              // helperText={displayNameValid}
             />
           </div>
+          {formSubmitted && displayNameValid && (
+            <span className="text-red-500 text-sm mt-1">
+              {displayNameValid}
+            </span>
+          )}
           <div className="flex border-1 rounded-md h-[50px] mt-6">
             <input
               className="w-full py-[4px] px-[14px] bg-white outline-none text-gray-500"
               label="Correo"
               type="email"
               placeholder="correo@google.com"
-              fullWidth
               name="email"
               value={email}
               onChange={onInputChange}
-              error={!!emailValid && formSubmitted}
-              helperText={emailValid}
+              // error={!!emailValid && formSubmitted}
+              // helperText={emailValid}
             />
           </div>
+          {formSubmitted && emailValid && (
+            <span className="text-red-500 text-sm mt-1">{emailValid}</span>
+          )}
           <div className="flex border-1 rounded-md h-[50px] mt-6">
             <input
               className="w-full py-[4px] px-[14px] bg-white outline-none text-gray-500"
               label="Contraseña"
               type="password"
               placeholder="Contraseña"
-              fullWidth
               name="password"
               value={password}
               onChange={onInputChange}
-              error={!!passwordValid && formSubmitted}
-              helperText={passwordValid}
+              // error={!!passwordValid && formSubmitted}
+              // helperText={passwordValid}
             />
           </div>
+          {formSubmitted && passwordValid && (
+            <span className="text-red-500 text-sm mt-1">{passwordValid}</span>
+          )}
           <div className="flex justify-center mt-6">
             <div display={!!errorMessage ? "" : "none"}>
               <div severity="error">{errorMessage}</div>
