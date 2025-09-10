@@ -133,18 +133,18 @@ export const Product = ({
           # Productos
         </h2>
         <p className="mt-[10px] text-[#9a9a9a]">Home . productos</p>
-        <div className="flex mt-[20px] max-w-[100%] justify-start gap-20">
-          <div className="py-[20px] px-[30px]">
-            <div>
+        <div className="grid grid-cols-1 md:grid-cols-4 mt-[20px] max-w-[100%] gap-20">
+          <div className="md:mx-auto py-[20px] px-[30px] col-span-1">
+            <div className="flex flex-col">
               <h3 className="text-[#010f1c] text-[16px] uppercase font-semibold">
-                Categorias
+                Categorias:
               </h3>
-              <ul className="mt-[10px]">
+              <ul className="flex flex-col mt-[10px]">
                 {categories.map(({ id, name }) => (
                   <li
                     key={id}
                     onClick={() => handleCategorySelection(name)}
-                    className="list-none mt-[20px] text-[#010f1c] cursor-pointer"
+                    className="list-none text-[#010f1c] p-2 cursor-pointer"
                   >
                     {name}
                   </li>
@@ -152,15 +152,15 @@ export const Product = ({
               </ul>
             </div>
           </div>
-          <div>
+          <div className="col-span-1 md:col-span-3">
             {searchedProducts.length > 0 ? (
-              <div className="flex justify-start gap-10 flex-wrap">
+              <div className="grid md:grid-cols-3 grid-cols-1  gap-10 flex-wrap">
                 {products?.map((selectedProduct) => {
                   const { id, title, thumbnail, price, category } =
                     selectedProduct;
                   return (
                     <div
-                      className="pb-[40px] px-[30px] overflow-hidden w-[360px] border-1 border-[#e2e0e0] transition duration-200 cursor-pointer rounded-sm hover:shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
+                      className="place-self-center pb-[40px] px-[30px] overflow-hidden w-[360px] border-1 border-[#e2e0e0] transition duration-200 cursor-pointer rounded-sm hover:shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
                       key={id}
                     >
                       <div className="flex w-[300px] border-b-1 border-[#e2e0e0] group">

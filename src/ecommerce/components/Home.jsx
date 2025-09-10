@@ -133,44 +133,57 @@ export function Home({
           </div>
         </div>
       ) : null}
-      <div className="top-banner py-[30px] px-[40px] w-[100%] bg-[#e3edf6]">
-        <div className="flex justify-center w-[100%] h-[550px] items-center">
-          <div className="flex flex-col detail w-[800px] p-[40px]">
-            <h2 className="py-[10px] pr-[50%] text-xl text-[#010f1c]">
-              La mejor coleccion de notas 2023
+      <div className="top-banner py-10 px-6 w-full bg-[#e3edf6]">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+          {/* Texto */}
+          <div className="flex flex-col max-w-[400px] md:max-w-[600px]">
+            <h2 className="mb-4 text-2xl md:text-4xl font-semibold text-[#010f1c] leading-snug">
+              La mejor colección de notas 2023
             </h2>
             <Link
               to="/product"
-              className="flex justify-between items-center w-[140px] py-[10px] px-[20px] transition duration-200 hover:bg-[#0989ff] hover:text-[#fff] rounded-md bg-[#fff] text-[#010f1c]"
+              className="flex justify-between items-center w-[160px] py-3 px-5 transition duration-200 hover:bg-[#0989ff] hover:text-white rounded-md bg-white text-[#010f1c] shadow-sm"
             >
               Shop Now <LiaLongArrowAltRightSolid />
             </Link>
           </div>
-          <div className="flex items-center justify-center h-[500px]">
-            <img className="h-[400px]" src={imageBanner} />
+
+          {/* Imagen */}
+          <div className="flex items-center justify-center w-full md:w-[500px]">
+            <img
+              className="w-full h-auto object-contain"
+              src={imageBanner}
+              alt="Banner"
+            />
           </div>
         </div>
       </div>
-      <div className="flex justify-center gap-[100px] py-[30px] w-[100%]">
-        {firstProducts.map(({ productCategory, thumbnail }, index) => (
-          <div className="flex max-w-[100%] justify-between" key={index}>
-            <div className="flex flex-col items-center justify-between py-[10px] px-[20px]">
-              <div className="flex items-center justify-center h-[220px] w-[220px] rounded-full bg-[#e8f4ff]">
-                <img
-                  className="w-[170px] h-[170px] transition duration-200 hover:scale-125"
-                  src={thumbnail}
-                  alt={productCategory}
-                ></img>
-              </div>
-              <div className="detail">
-                <p>23 products</p>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 py-[30px] w-[100%]">
+        {firstProducts.map(
+          ({ productCategory, thumbnail, productsTotal }, index) => (
+            <div
+              className="col-span-1 place-self-center max-w-[100%] justify-between"
+              key={index}
+            >
+              <div className="flex flex-col items-center py-[10px] px-[20px]">
+                <div className="flex items-center justify-center h-[220px] w-[220px] rounded-full bg-[#e8f4ff]">
+                  <img
+                    className="w-[170px] h-[170px] transition duration-200 hover:scale-125"
+                    src={thumbnail}
+                    alt={productCategory}
+                  ></img>
+                </div>
+                <div className="detail m-5">
+                  <p>{productsTotal} Productos</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
-      <div className="flex justify-center gap-[120px] py-[40px] w-[100%]">
-        <div className="flex py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-4 justify-center py-[40px] w-[100%]">
+        <div className="flex col-span-1 place-self-center py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
           <div className="text-[#e44c8c] text-[32px]">
             <FiTruck />
           </div>
@@ -180,7 +193,7 @@ export function Home({
           </div>
         </div>
 
-        <div className="flex py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
+        <div className="flex col-span-1 place-self-center py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
           <div className="text-[#e44c8c] text-[32px]">
             <BsCurrencyDollar />
           </div>
@@ -190,7 +203,7 @@ export function Home({
           </div>
         </div>
 
-        <div className="flex py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
+        <div className="flex col-span-1 place-self-center py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
           <div className="text-[#e44c8c] text-[32px]">
             <CiPercent />
           </div>
@@ -200,7 +213,7 @@ export function Home({
           </div>
         </div>
 
-        <div className="flex py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
+        <div className="flex col-span-1 place-self-center py-[10px] gap-[10px] bg-[#ecf2f7] w-[250px] h-[90px] rounded-md justify-center items-center cursor-pointer">
           <div className="text-[#e44c8c] text-[32px]">
             <FaHeadphones />
           </div>
@@ -265,15 +278,15 @@ export function Home({
         </div>
       </div>
       <div className="py-[20px] px-[30px] w-[100%]">
-        <div className="flex justify-around py-[30px] px-[40px] bg-[#0989ff] rounded-xl">
+        <div className="flex justify-around items-center py-[30px] px-[40px] bg-[#0989ff] rounded-xl">
           <div className="inline-block mt-[30px] mb-[30px] ml-[20px]">
-            <h4 className="text-[#e3edf6] text-[16px] tracking-[1px]">
+            <h4 className="text-[#e3edf6] text-[12px] md:text-[16px] tracking-[1px]">
               Ultima tecnologia agregada
             </h4>
-            <h3 className="mt-[10px] text-[42px] mr-[20%] tracking-[1px] text-[#fff]">
+            <h3 className="mt-[10px] text-[20px] md:text-[42px] mr-[20%] tracking-[1px] text-[#fff]">
               {title}
             </h3>
-            <p className="flex justify-start items-center my-[20px] text-[#fff] text-[32px] tracking-[1px] font-semibold">
+            <p className="flex justify-start items-center my-[20px] text-[#fff] text-[24px] md:text-[32px] tracking-[1px] font-semibold">
               <BsCurrencyDollar />
               {price}
             </p>

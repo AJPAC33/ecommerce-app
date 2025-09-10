@@ -35,52 +35,54 @@ export function NavBar({ searchBtn }) {
   return (
     <>
       <div className="main-header flex justify-center border-b-1 border-[#010f1c] py-[30px] px-[40px] w-[100%]">
-        <div className="flex justify-between items-center w-[95%]">
-          <div className="logo w-[130px] mr-[30px]">
+        <div className="flex flex-row justify-center gap-40 items-center w-[95%]">
+          <div className="hidden md:block logo w-[130px] m-[15px]">
             <img src={logo} alt="logo" />
           </div>
-          <div className="flex flex-row mr-[30px]">
-            <input
-              className="border-3 border-[#0989ff] focus:border-[#0989ff] outline-none w-[120%] h-12 py-[10px] px-[30px] text-[#010f1c]"
-              type="text"
-              value={inputValue}
-              onChange={handleChange}
-              placeholder="Nombre el producto..."
-              autoComplete="off"
-            />
-            <button
-              className="py-[12px] px-[30px] cursor-pointer bg-[#0989ff] text-[#ecf2f7] h-12 w-30"
-              onClick={handleSearch}
-            >
-              Buscar
-            </button>
-          </div>
-          <div className="flex justify-between">
-            <div className="flex mr-[10px] items-center">
-              <div className="mr-[10px] text-[22px] cursor-pointer">
-                <LuUserRound />
-              </div>
-              {status === "authenticated" ? (
-                <p className="text-[15px]">Hola, {displayName}</p>
-              ) : null}
+          <div className="flex flex-row">
+            <div className="flex flex-row w-auto md:w-[700px] m-[15px]">
+              <input
+                className="border-3 border-[#0989ff] focus:border-[#0989ff] outline-none w-[120%] h-12 py-[10px] px-[30px] text-[#010f1c]"
+                type="text"
+                value={inputValue}
+                onChange={handleChange}
+                placeholder="Nombre el producto..."
+                autoComplete="off"
+              />
+              <button
+                className="py-[12px] px-[12px] cursor-pointer bg-[#0989ff] text-[#ecf2f7] h-12 w-30"
+                onClick={handleSearch}
+              >
+                Buscar
+              </button>
             </div>
-            <div className="flex items-center">
-              <p>
-                <Link
-                  to="/"
-                  className="flex justify-center text-[#0989ff] text-[22px] mr-[5px] cursor-pointer"
-                >
-                  <CiHeart />
-                </Link>
-              </p>
-              <p>
-                <Link
-                  to="/cart"
-                  className="flex justify-center text-[#0989ff] text-[22px] mr-[5px] cursor-pointer"
-                >
-                  <IoBagCheckOutline />
-                </Link>
-              </p>
+            <div className="flex justify-between">
+              <div className="hidden md:flex  mr-[10px] items-center">
+                <div className="mr-[10px] text-[22px] cursor-pointer">
+                  <LuUserRound />
+                </div>
+                {status === "authenticated" ? (
+                  <p className="text-[15px]">Hola, {displayName}</p>
+                ) : null}
+              </div>
+              <div className="flex items-center">
+                <p>
+                  <Link
+                    to="/"
+                    className="flex justify-center text-[#0989ff] text-[22px] mr-[5px] cursor-pointer"
+                  >
+                    <CiHeart />
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    to="/cart"
+                    className="flex justify-center text-[#0989ff] text-[22px] mr-[5px] cursor-pointer"
+                  >
+                    <IoBagCheckOutline />
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -71,9 +71,10 @@ export function useFirstProductsByCategory(categories) {
         categories.map((category) =>
           fetch(`https://dummyjson.com/products/category/${category}`)
             .then((res) => res.json())
-            .then(({ products }) => ({
-              productCategory: products[0].category,
-              thumbnail: products[0].thumbnail,
+            .then((data) => ({
+              productsTotal: data.total,
+              productCategory: data.products[0]?.category || category,
+              thumbnail: data.products[0]?.thumbnail || null,
             }))
         )
       )

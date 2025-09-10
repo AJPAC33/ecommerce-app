@@ -9,8 +9,8 @@ export const Footer = () => {
   return (
     <>
       <div className="py-[40px] px-[80px] w-[100%] bg-[#ecf2f7]">
-        <div className="flex max-w-[100%] justify-between items-center">
-          <div className="max-w-[30%] mt-[30px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 justify-center items-center">
+          <div className="hidden md:block md:col-span-1 place-self-center mt-[30px]">
             <div className="w-[100px]">
               <img src="src\assets\logo.png" alt="logo" />
             </div>
@@ -35,9 +35,11 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="mr-[60px] mt-[30px]">
-            <h3 className="text-[32px] text-[#010f1c]">Mi cuenta</h3>
-            <ul className="mt-[10px] ml-[20px]">
+          <div className="md:col-span-1 place-self-center mt-[30px]">
+            <h3 className="place-self-center text-[24px] md:text-[32px] text-[#010f1c]">
+              Mi cuenta
+            </h3>
+            <ul className="flex flex-col items-center mt-[10px]">
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Cuenta
               </li>
@@ -45,7 +47,7 @@ export const Footer = () => {
                 Orden
               </li>
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
-                Carrito
+                <Link to="/cart">Carrito</Link>
               </li>
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 Envio
@@ -55,9 +57,11 @@ export const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="mr-[60px] mt-[30px]">
-            <h3 className="text-[32px] text-[#010f1c]">Paginas</h3>
-            <ul className="mt-[10px] ml-[20px]">
+          <div className="md:col-span-1 place-self-center mt-[10px]">
+            <h3 className="place-self-center text-[24px] md:text-[32px] text-[#010f1c]">
+              Paginas
+            </h3>
+            <ul className="flex flex-col items-center mt-[10px]">
               <li className="mt-[5px] text-[#010f1c] text-[14px] transition duration-200 cursor-pointer hover:text-[#0989ff]">
                 <Link to="/home">Home</Link>
               </li>
