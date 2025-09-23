@@ -81,7 +81,7 @@ export const Cart = ({ cart, setCart }) => {
                 selectedCartProduct;
               return (
                 <div
-                  className="flex py-[20px] px-[30px] bg-[#fff] rounded-xl mt-[10px] mb-[10px]"
+                  className="flex m-[20px] py-[20px] px-[30px] bg-[#fff] rounded-xl mt-[10px] mb-[10px]"
                   key={id}
                 >
                   <div className="hidden md:block py-[20px] px-[20px] bg-[#f1f1f1]">

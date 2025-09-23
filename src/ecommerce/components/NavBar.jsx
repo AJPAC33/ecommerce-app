@@ -87,7 +87,7 @@ export function NavBar({ searchBtn }) {
           </div>
         </div>
       </div>
-      <div className="max-w-[100%] py-[20px] px-[30px] justify-between items-center shadow-[0_5px_15px_rgba(0,0,0,0.35)]">
+      <div className="max-w-[100%] py-[20px] px-[30px] xl:px-[100px] justify-between items-center shadow-[0_5px_15px_rgba(0,0,0,0.35)]">
         <div className="container max-w-[100%] flex justify-between items-center">
           <div className="nav items-center">
             <ul className="flex flex-row">
@@ -107,7 +107,7 @@ export function NavBar({ searchBtn }) {
                   Productos
                 </Link>
               </li>
-              <li className="ml-[20px] inline-block">
+              <li className="hidden xl:inline-block ml-[20px]">
                 <Link
                   to="/about"
                   className="text-[#010f1c] transition duration-200 hover:text-[#0989ff]"
@@ -125,7 +125,7 @@ export function NavBar({ searchBtn }) {
               </li>
             </ul>
           </div>
-          <div className="auth mr-[20px] text-[20px] cursor-pointer">
+          <div className="auth text-[20px] cursor-pointer">
             {status === "authenticated" ? (
               <button
                 className="mr-[20px] text-[20px] cursor-pointer border-none bg-none"

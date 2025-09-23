@@ -21,6 +21,7 @@ export const Product = ({
   handleAddToCart,
   handleNotLoggedIn,
   handleView,
+  category,
 }) => {
   const { status } = useSelector((state) => state.auth);
   const modalRef = useRef();
@@ -52,6 +53,18 @@ export const Product = ({
   }, [product, searchedProducts, productsByCategory]);
 
   useEffect(() => {
+    console.log(category);
+    if (category) {
+      const match = categories.find(
+        (c) => c.category === category || c.name === category
+      );
+      if (match && categoryActions[match.name]) {
+        handleCategorySelection(match.name);
+      }
+    }
+  }, [category]);
+
+  useEffect(() => {
     const handleOutsideClick = (e) => {
       if (
         !closeState &&
@@ -71,9 +84,9 @@ export const Product = ({
   return (
     <>
       {!closeState ? (
-        <div className="flex justify-center items-center  py-[30px] px-[40px] fixed top-0 right-0 bottom-0 left-0 bg-[rgba(0,0,0,0.24)] z-1">
+        <div className="flex justify-center items-center  py-[30px] px-[40px] fixed top-0 right-0 bottom-0 left-0 bg-[rgba(0,0,0,0.24)] z-2">
           <div
-            className="relative xl:w-[1000px] h-[600px] sm:w-[500px] bg-[#fff] py-[20px] px-[30px] rounded-xl shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
+            className="relative w-auto xl:w-[1000px] h-auto bg-[#fff] py-[20px] px-[30px] rounded-xl shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
             ref={modalRef}
           >
             <button
@@ -94,15 +107,15 @@ export const Product = ({
                   <div className="py-[10px] px-[20px] w-[200px] h-[200px] bg-[#f1f1f1]">
                     <img src={thumbnail} alt={title} />
                   </div>
-                  <div className="ml-[30px] mt-[15px]">
-                    <h4 className="uppercase text-[14px] font-extralight text-[#9a9a9a] tracking-widest">
+                  <div className="mt-[15px]">
+                    <h4 className="m-1 uppercase text-[14px] font-extralight text-[#9a9a9a] tracking-widest">
                       {category}
                     </h4>
-                    <h2 className="text-[22px] text-[#010f1c] capitalize tracking-widest">
+                    <h2 className="m-1 text-[22px] text-[#010f1c] capitalize tracking-widest">
                       {title}
                     </h2>
-                    <p className="text-[#4a4a4a]">{description}</p>
-                    <h3 className="text-[#010f1c] text-[22px] tracking-widest">
+                    <p className="m-1 text-[#4a4a4a]">{description}</p>
+                    <h3 className="m-1 text-[#010f1c] text-[22px] tracking-widest">
                       {price}
                     </h3>
                     {status === "authenticated" ? (
@@ -154,7 +167,7 @@ export const Product = ({
           </div>
           <div className="col-span-1 md:col-span-3">
             {searchedProducts.length > 0 ? (
-              <div className="grid md:grid-cols-3 grid-cols-1  gap-10 flex-wrap">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 flex-wrap">
                 {products?.map((selectedProduct) => {
                   const { id, title, thumbnail, price, category } =
                     selectedProduct;
@@ -169,7 +182,7 @@ export const Product = ({
                           src={thumbnail}
                           alt={title}
                         />
-                        <div className="z-1 relative left-[44px] mt-[14px] transition duration-200 group-hover:-translate-x-[74px]">
+                        <div className="z-1 relative right-[32px] mt-[14px] transition duration-200 xl:group-hover:-translate-x-[74px]">
                           {status === "authenticated" ? (
                             <li
                               className="flex justify-center items-center list-none p-[10px] w-[44px] h-[44px] text-[#010f1c] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-[#fff] transition duration-200 text-[18px] hover:bg-[#0989ff] hover:text-[#fff]"

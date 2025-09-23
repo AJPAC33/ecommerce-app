@@ -9,7 +9,7 @@ import { PiShoppingCart } from "react-icons/pi";
 import { IoEyeOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   useCategories,
   useFirstProductsByCategory,
@@ -21,6 +21,10 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { imageBanner } from "../../assets";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
 export function Home({
   detail,
@@ -29,8 +33,10 @@ export function Home({
   handleView,
   handleAddToCart,
   handleNotLoggedIn,
+  handleCategorySelection,
 }) {
   const { status } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const modalRef = useRef();
   const categories = useCategories();
   const randomProductName = useRandomProductName();
@@ -52,6 +58,15 @@ export function Home({
         )
       : null;
   const { title, price, thumbnail } = mostExpensiveProduct ?? {};
+
+  const slides = Array.from({ length: 1000 }).map(
+    (el, index) => `Slide ${index + 1}`
+  );
+
+  const handleNavigateToSelectedCategory = (selectedCategory) => {
+    handleCategorySelection(selectedCategory);
+    navigate("/product");
+  };
 
   const handleClose = () => {
     setCloseState(true);
@@ -77,9 +92,9 @@ export function Home({
   return (
     <>
       {!closeState ? (
-        <div className="flex justify-center items-center  py-[30px] px-[40px] fixed top-0 right-0 bottom-0 left-0 bg-[rgba(0,0,0,0.24)] z-1">
+        <div className="flex justify-center items-center  py-[30px] px-[40px] fixed top-0 right-0 bottom-0 left-0 bg-[rgba(0,0,0,0.24)] z-2">
           <div
-            className="relative xl:w-[1000px] h-[600px] sm:w-[500px] bg-[#fff] py-[20px] px-[30px] rounded-xl shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
+            className="relative w-auto xl:w-[1000px] h-auto bg-[#fff] py-[20px] px-[30px] rounded-xl shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
             ref={modalRef}
           >
             <button
@@ -100,15 +115,17 @@ export function Home({
                   <div className="py-[10px] px-[20px] w-[200px] h-[200px] bg-[#f1f1f1]">
                     <img src={thumbnail} alt={title} />
                   </div>
-                  <div className="ml-[30px] mt-[15px]">
-                    <h4 className="uppercase text-[14px] font-extralight text-[#9a9a9a] tracking-widest">
+                  <div className="mt-[15px]">
+                    <h4 className="m-1 uppercase text-[14px] font-extralight text-[#9a9a9a] tracking-widest">
                       {category}
                     </h4>
-                    <h2 className="text-[22px] text-[#010f1c] capitalize tracking-widest">
+                    <h2 className="m-1 text-[22px] text-[#010f1c] capitalize tracking-widest">
                       {title}
                     </h2>
-                    <p className="text-[#4a4a4a]">{description}</p>
-                    <h3 className="text-[#010f1c] text-[22px] tracking-widest">
+                    <p className="m-1 text-[14px] text-[#4a4a4a]">
+                      {description}
+                    </p>
+                    <h3 className="m-1 text-[#010f1c] text-[22px] tracking-widest">
                       {price}
                     </h3>
                     {status === "authenticated" ? (
@@ -158,13 +175,41 @@ export function Home({
           </div>
         </div>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-4 py-[30px] w-[100%]">
+      <div className="block md:hidden pt-[60px] pb-[30px] w-[100%]">
+        <Swiper navigation={true} modules={[Navigation]}>
+          {firstProducts.map(
+            ({ productCategory, thumbnail, productsTotal }, index) => (
+              <SwiperSlide
+                className="place-self-center max-w-[100%] justify-between cursor-pointer"
+                key={index}
+                onClick={() =>
+                  handleNavigateToSelectedCategory(productCategory)
+                }
+              >
+                <div className="flex flex-col items-center py-[10px] px-[20px]">
+                  <div className="flex items-center justify-center h-[220px] w-[220px] rounded-full bg-[#e8f4ff]">
+                    <img
+                      className="w-[170px] h-[170px] transition duration-200 hover:scale-125"
+                      src={thumbnail}
+                      alt={productCategory}
+                    ></img>
+                  </div>
+                  <div className="detail m-5">
+                    <p>{productsTotal} Productos</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            )
+          )}
+        </Swiper>
+      </div>
+      <div className="hidden md:grid grid-cols-4 pt-[60px] pb-[30px] w-[100%]">
         {firstProducts.map(
           ({ productCategory, thumbnail, productsTotal }, index) => (
             <div
               className="col-span-1 place-self-center max-w-[100%] justify-between"
               key={index}
+              onClick={() => handleNavigateToSelectedCategory(productCategory)}
             >
               <div className="flex flex-col items-center py-[10px] px-[20px]">
                 <div className="flex items-center justify-center h-[220px] w-[220px] rounded-full bg-[#e8f4ff]">
@@ -226,7 +271,7 @@ export function Home({
 
       <div className="flex flex-col justify-center items-center py-[30px] px-[40px] w-[100%]">
         <h4 className="text-[32px] text-[#010f1c]">Productos Top</h4>
-        <div className="grid gap-18 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-[60px] w-fit mx-auto">
+        <div className="grid gap-18 grid-cols-1 md:grid-cols-2 xl:grid-cols-4  mt-[60px] w-fit mx-auto">
           {products.map((selectedProduct) => {
             const { id, title, thumbnail, price, category } = selectedProduct;
             return (
@@ -236,7 +281,7 @@ export function Home({
               >
                 <div className="flex w-auto md:w-[300px] border-b-1 border-[#e2e0e0] group">
                   <img className="w-[300px]" src={thumbnail} alt={title} />
-                  <div className="z-1 relative left-[44px] mt-[14px] transition duration-200 group-hover:-translate-x-[74px]">
+                  <div className="z-1 relative right-[32px] xl:left-[44px] mt-[14px] transition duration-200 xl:group-hover:-translate-x-[74px]">
                     {status === "authenticated" ? (
                       <li
                         className="flex justify-center items-center list-none p-[10px] w-[44px] h-[44px] text-[#010f1c] cursor-pointer shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-[#fff] transition duration-200 text-[18px] hover:bg-[#0989ff] hover:text-[#fff]"

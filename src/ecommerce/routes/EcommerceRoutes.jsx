@@ -8,10 +8,15 @@ import { Cart } from "../components/Cart";
 import { Contact } from "../components/Contact";
 
 export function EcommerceRoutes() {
+  const [category, setCategory] = useState("");
   const [cart, setCart] = useState([]);
   const [closeState, setCloseState] = useState(true);
   const [detail, setDetail] = useState([]);
   const [product, setProduct] = useState("");
+
+  const handleCategorySelection = (selectedCategory) => {
+    setCategory(selectedCategory);
+  };
 
   const handleView = (selectedProduct) => {
     setCloseState(false);
@@ -51,6 +56,7 @@ export function EcommerceRoutes() {
               handleAddToCart={handleAddToCart}
               handleNotLoggedIn={handleNotLoggedIn}
               handleView={handleView}
+              handleCategorySelection={handleCategorySelection}
             />
           }
         />
@@ -67,6 +73,7 @@ export function EcommerceRoutes() {
               handleAddToCart={handleAddToCart}
               handleNotLoggedIn={handleNotLoggedIn}
               handleView={handleView}
+              category={category}
             />
           }
         />
