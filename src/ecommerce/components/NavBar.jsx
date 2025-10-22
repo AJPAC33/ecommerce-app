@@ -42,11 +42,11 @@ export function NavBar({ searchBtn }) {
           <div className="flex flex-row">
             <div className="flex flex-row w-auto md:w-[700px] m-[15px]">
               <input
-                className="border-3 border-[#0989ff] focus:border-[#0989ff] outline-none w-[120%] h-12 py-[10px] px-[30px] text-[#010f1c]"
+                className="border-3 border-[#0989ff] focus:border-[#0989ff] placeholder-gray-500 outline-none w-[120%] h-12 py-[10px] px-[30px] text-[#010f1c]"
                 type="text"
                 value={inputValue}
                 onChange={handleChange}
-                placeholder="Nombre el producto..."
+                placeholder="Producto..."
                 autoComplete="off"
               />
               <button

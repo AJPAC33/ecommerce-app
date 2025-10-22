@@ -13,19 +13,19 @@ export const Contact = () => {
         </h2>
         <div>
           <form
-            className="flex flex-col items-center mt-[30px] py-[20px] px-[30px] bg-[#fff] rounded-xl shadow-[0_3px_8px_rgba(0,0,0,0.24)]"
+            className="flex flex-col items-center mt-[30px] py-[20px] px-[30px] bg-[#fff] rounded-xl shadow-[0_3px_8px_rgba(0,0,0,0.24)] [&_.child]:placeholder-gray-500 [&_.child]:py-[10px] [&_.child]:px-[30px] [&_.child]:outline-none [&_.child]:bg-transparent [&_.child]:border-b-2 [&_.child]:w-[200px] md:[&_.child]:w-[350px] [&_.child]:mt-[20px]"
             method="POST"
           >
             <input
-              className="py-[10px] px-[30px] outline-none bg-none border-b-2 w-[350px] mt-[20px]"
+              className="child"
               type="text"
               name="name"
-              placeholder="Ingresa tu nombre completo"
+              placeholder="Ingresa tu nombre"
               autoComplete="off"
               required
             />
             <input
-              className="py-[10px] px-[30px] outline-none bg-none border-b-2 w-[350px] mt-[20px]"
+              className="child"
               type="email"
               name="email"
               placeholder="Ingresa tu email"
@@ -33,7 +33,7 @@ export const Contact = () => {
               required
             />
             <input
-              className="py-[10px] px-[30px] outline-none bg-none border-b-2 w-[350px] mt-[20px]"
+              className="child"
               type="text"
               name="subject"
               placeholder="Ingresa el asunto"
@@ -41,7 +41,7 @@ export const Contact = () => {
               required
             />
             <textarea
-              className="py-[10px] px-[30px] outline-none bg-none border-b-2 w-[350px] mt-[20px] resize-none "
+              className="child resize-none "
               name="message"
               placeholder="Tu mensaje"
               autoComplete="off"
